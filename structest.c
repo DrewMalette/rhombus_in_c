@@ -26,15 +26,12 @@ void set_health(Mob *mob, short health) {
     mob->health = health;
 }
 
-Camera* InitCamera(char *uid, int x, int y, int w, int h) {
-    Camera *camera;
-    camera.uid = uid;
-    camera.rect.x = x;
-    camera.rect.y = y;
-    camera.rect.w = w;
-    camera.rect.h = h;
-    
-    return camera;
+void InitCamera(Camera *camera, char *uid, int x, int y, int w, int h) {
+    camera->uid = uid;
+    camera->rect.x = x;
+    camera->rect.y = y;
+    camera->rect.w = w;
+    camera->rect.h = h;
 }
 
 int main() {
@@ -59,7 +56,9 @@ int main() {
     SDL_SetRenderDrawColor(rend, 255, 0, 0, 255);
 
     /* my defined stuff */
-    Camera *camera1 = InitCamera("camera1", 0, 0, 640, 480);
+    Camera camera1;
+    InitCamera(&camera1, "camera1", 0, 0, 640, 480);
+    printf("%d\n", camera1.rect.w);
 
     Mob player;
     InitMob(&player, "Drew", 5, "gb-onion.png");
