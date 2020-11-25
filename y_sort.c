@@ -3,37 +3,31 @@
 
 #include "rhombus.h"
 
-//int values[] = { 88, 56, 100, 2, 25 };
-
-int cmpfunc (const void *a, const void *b) {
-   const Camera *c1 = a;
-   const Camera *c2 = b;
-   return c1->rect.y - c2->rect.y;
-   //return ( *(struct Camera)a.rect.y - *(struct Camera)b.rect.y );
-   //return ( (int*)a.rect.y - (int*)b.rect.y );
+int y_sort(const void *a, const void *b) {
+   const mob_t *m1 = a;
+   const mob_t *m2 = b;
+   return m1->rect.y - m2->rect.y;
 }
 
-int main () {
+int main() {
 
-   Camera c1 = InitCamera("c1", 0, 10, 1,1);
-   Camera c2 = InitCamera("c2", 0, 1, 1,1);
-   Camera c3 = InitCamera("c3", 0, 45, 1,1);
-   Camera c4 = InitCamera("c4", 0, 200, 1,1);
-   Camera c5 = InitCamera("c5", 0, 5, 1,1);
-
-   Camera values[] = { c1, c2, c3, c4, c5 };
+   mob_t m1 = InitMob(1, "Noel", 10, NULL, 0, 10, 1,1);
+   mob_t m2 = InitMob(2, "Jasper", 10, NULL, 0, 1, 1,1);
+   mob_t m3 = InitMob(3, "Midgar", 10, NULL, 0, 45, 1,1);
+   
+   mob_t values[] = { m1, m2, m3 };
 
    printf("Before sorting the list is: \n");
-   for(int n = 0; n < 5; n++) {
-      printf("%d ", values[n].rect.y);
+   for(int n = 0; n < 3; n++) {
+      printf("%s\n", values[n].name);
    }
    
-   int n = sizeof(values) / sizeof(Camera);
-   qsort(values, n, sizeof(Camera), cmpfunc);
+   int n = sizeof(values) / sizeof(mob_t);
+   qsort(values, n, sizeof(mob_t), y_sort);
 
    printf("\nAfter sorting the list is: \n");
-   for(int n = 0 ; n < 5; n++ ) {   
-      printf("%d ", values[n].rect.y);
+   for(int n = 0 ; n < 3; n++ ) {   
+      printf("%s\n", values[n].name);
    }
   
    return(0);

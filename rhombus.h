@@ -7,17 +7,19 @@
 #include <SDL2/SDL_image.h>
 
 typedef struct {
-    char *uid;
+    char *uid; /* should uid be an int? */
     SDL_Rect rect;
-} Camera;
+} camera_t;
 
 typedef struct {
+    int uid;
     char *name;
     short health;
     SDL_Surface* image;
-} Mob;
+    SDL_Rect rect;
+} mob_t;
 
-Mob InitMob(char *name, short health, char *filename);
-Camera InitCamera(char *uid, int x, int y, int w, int h);
+mob_t InitMob(int uid, char *name, short health, char *filename, int x, int y, int w, int h);
+camera_t InitCamera(char *uid, int x, int y, int w, int h);
 
 #endif /* RHOMBUS_H_ */
