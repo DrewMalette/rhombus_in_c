@@ -21,3 +21,10 @@ camera_t InitCamera(char *uid, int x, int y, int w, int h) {
     camera.rect.h = h;    
     return camera;
 }
+
+int y_sort(const void *a, const void *b) {
+   const mob_t *m1 = a;
+   const mob_t *m2 = b;
+   return m1->rect.y - m2->rect.y;
+}
+

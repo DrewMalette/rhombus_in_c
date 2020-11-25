@@ -21,5 +21,6 @@ typedef struct {
 
 mob_t InitMob(int uid, char *name, short health, char *filename, int x, int y, int w, int h);
 camera_t InitCamera(char *uid, int x, int y, int w, int h);
+int y_sort(const void *a, const void *b);
 
 #endif /* RHOMBUS_H_ */
