@@ -22,9 +22,17 @@ camera_t InitCamera(char *uid, int x, int y, int w, int h) {
     return camera;
 }
 
-int y_sort(const void *a, const void *b) {
+int y_sort_cmp(const void *a, const void *b) {
    const mob_t *m1 = a;
    const mob_t *m2 = b;
    return m1->rect.y - m2->rect.y;
 }
 
+void print_mob(mob_t mobs[]) {
+    printf("%s", mobs[0].name);
+}
+
+void y_sort(mob_t mobs[], int array_len) {
+    int n = array_len / sizeof(mob_t);
+    qsort(mobs, n, sizeof(mob_t), y_sort_cmp);
+}
