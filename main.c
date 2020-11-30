@@ -6,8 +6,7 @@ int main() {
     
     //camera.rect.w = 101;
     
-    Mob mob = InitMob("Drew", 5, "drew_spr.png");
-    
+    mob_t mob = InitMob(0, "Drew", 30, NULL, 0, 0, 16, 24);
     printf("%s %d\n", mob.name, mob.health);
     
     return 0;

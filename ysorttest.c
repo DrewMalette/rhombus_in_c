@@ -13,7 +13,7 @@ int main() {
 
     printf("Before sorting the list is: \n");
     for(int n = 0; n < 3; n++) {
-      printf("%s\n", mobs[n].name);
+        printf("%s\n", mobs[n].name);
     }
 
     y_sort(mobs, sizeof(mobs));
@@ -21,7 +21,7 @@ int main() {
       
     printf("\nAfter sorting the list is: \n");
     for(int n = 0 ; n < 3; n++ ) {   
-      printf("%s\n", mobs[n].name);
+        printf("%s\n", mobs[n].name);
     }
 
     return(0);
