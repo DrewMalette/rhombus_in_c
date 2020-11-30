@@ -4,7 +4,7 @@ mob_t InitMob(int uid, char *name, short health, char *filename, int x, int y, i
     mob_t mob;
     mob.name = name;
     mob.health = health;
-    //mob.image = IMG_Load(filename);
+    mob.image = IMG_Load(filename);
     mob.rect.x = x;
     mob.rect.y = y;
     mob.rect.w = w;
@@ -12,7 +12,7 @@ mob_t InitMob(int uid, char *name, short health, char *filename, int x, int y, i
     return mob;
 }
 
-camera_t InitCamera(char *uid, int x, int y, int w, int h) {
+camera_t InitCamera(int uid, int x, int y, int w, int h) {
     camera_t camera;    
     camera.uid = uid;
     camera.rect.x = x;

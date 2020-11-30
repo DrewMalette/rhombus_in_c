@@ -7,7 +7,7 @@
 #include <SDL2/SDL_image.h>
 
 typedef struct {
-    char *uid; /* should uid be an int? */
+    int uid; /* should uid be an int? yes. yes it should */
     SDL_Rect rect;
 } camera_t;
 
@@ -20,7 +20,7 @@ typedef struct {
 } mob_t;
 
 mob_t InitMob(int uid, char *name, short health, char *filename, int x, int y, int w, int h);
-camera_t InitCamera(char *uid, int x, int y, int w, int h);
+camera_t InitCamera(int uid, int x, int y, int w, int h);
 int y_sort_cmp(const void *a, const void *b);
 void y_sort(mob_t mobs[], int array_len);
 void print_mob(mob_t mobs[]);

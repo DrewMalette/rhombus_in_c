@@ -1,38 +1,9 @@
 #include <stdio.h>
 #include <string.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+
+#include "rhombus.h"
 
 #define SPRITE_SIZE 16
-
-typedef struct {
-    char *name;
-    short health;
-    SDL_Surface* image;
-} Mob;
-
-typedef struct {
-    char *uid;
-    SDL_Rect rect;
-} Camera;
-
-void InitMob(Mob *mob, char *name, short health, char *filename) {
-    mob->name = name;
-    mob->health = health;
-    mob->image = IMG_Load(filename);
-}
-
-void set_health(Mob *mob, short health) {
-    mob->health = health;
-}
-
-void InitCamera(Camera *camera, char *uid, int x, int y, int w, int h) {
-    camera->uid = uid;
-    camera->rect.x = x;
-    camera->rect.y = y;
-    camera->rect.w = w;
-    camera->rect.h = h;
-}
 
 int main() {
 
@@ -56,12 +27,10 @@ int main() {
     SDL_SetRenderDrawColor(rend, 255, 0, 0, 255);
 
     /* my defined stuff */
-    Camera camera1;
-    InitCamera(&camera1, "camera1", 0, 0, 640, 480);
+    camera_t camera1 = InitCamera(100, 0, 0, 640, 480);
     printf("%d\n", camera1.rect.w);
 
-    Mob player;
-    InitMob(&player, "Drew", 5, "gb-onion.png");
+    mob_t player = InitMob(200, "Drew", 30, "gb-onion.png", 0, 0, 16, 24);
     printf("%s %d %d\n", player.name, player.image->w, player.image->h);
 
     for(int i=0; i < 10; i++) {
@@ -81,15 +50,15 @@ int main() {
     SDL_Rect player_rect;
     SDL_Rect player_dest;
 
-    player_rect.x = 8;
-    player_rect.y = 8;
+    player_rect.x = 0;
+    player_rect.y = 0;
     player_rect.w = SPRITE_SIZE;
     player_rect.h = SPRITE_SIZE;
 
     player_dest.x = 10;
     player_dest.y = 10;
-    player_dest.w = SPRITE_SIZE * 4;
-    player_dest.h = SPRITE_SIZE * 4;
+    player_dest.w = SPRITE_SIZE;
+    player_dest.h = SPRITE_SIZE;
 
     SDL_RenderClear(rend);
 
