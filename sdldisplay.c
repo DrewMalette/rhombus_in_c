@@ -22,6 +22,8 @@ int main() {
         return 1;
     }
 
+	SDL_SetWindowFullscreen(display, SDL_WINDOW_FULLSCREEN_DESKTOP);
+
     Uint32 render_flags = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
     SDL_Renderer* rend = SDL_CreateRenderer(display, -1, render_flags);
     SDL_SetRenderDrawColor(rend, 255, 0, 0, 255);
