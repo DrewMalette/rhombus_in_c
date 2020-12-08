@@ -23,6 +23,5 @@ mob_t InitMob(int uid, char *name, short health, char *filename, int x, int y, i
 camera_t InitCamera(int uid, int x, int y, int w, int h);
 int y_sort_cmp(const void *a, const void *b);
 void y_sort(mob_t mobs[], int array_len);
-void print_mob(mob_t mobs[]);
 
 #endif /* RHOMBUS_H_ */
