@@ -1,23 +1,26 @@
+CC		:= gcc
+LIBS	:= -lSDL2 -lSDL2_image
+
 game: main.o rhombus.o
-	gcc main.o rhombus.o -o bin/game -lSDL2 -lSDL2_image
+	$(CC) main.o rhombus.o -o bin/game $(LIBS)
 	
 ysorttest: ysorttest.o rhombus.o 
-	gcc ysorttest.o rhombus.o -o bin/ysorttest -lSDL2 -lSDL2_image
+	$(CC) ysorttest.o rhombus.o -o bin/ysorttest $(LIBS)
 	
 sdldisplay: sdldisplay.o rhombus.o
-	gcc sdldisplay.o rhombus.o -o bin/sdldisplay -lSDL2 -lSDL2_image
+	$(CC) sdldisplay.o rhombus.o -o bin/sdldisplay $(LIBS)
 
 main.o: main.c
-	gcc -c main.c
+	$(CC) -c main.c
 
 ysorttest.o: ysorttest.c
-	gcc -c ysorttest.c
+	$(CC) -c ysorttest.c
 	
 sdldisplay.o:
-	gcc -c sdldisplay.c
+	$(CC) -c sdldisplay.c
 
 rhombus.o: rhombus.c
-	gcc -c rhombus.c
+	$(CC) -c rhombus.c
 
 clean:
 	rm *.o
